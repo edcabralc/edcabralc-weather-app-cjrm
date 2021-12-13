@@ -1,0 +1,248 @@
+@import url("./reset");
+
+:root {
+    --soft-purple: #e0c3fc;
+    --ligth-blue: #8ec5fc;
+    --deep-purple: #5d13e7;
+    --primary: #ffffff;
+    --secondary: #0d171f;
+    --secondary-soft: #4d555c;
+    --xl-space: 5rem;
+    --l-space: 3.75rem;
+    --md-space: 2.5rem;
+    --sm-space: 1.875rem;
+    --xsm-space: 0.625rem;
+}
+
+html {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background-color: var(--ligth-blue);
+    background-image: linear-gradient(
+        33deg,
+        var(--ligth-blue) 0%,
+        var(--soft-purple) 61%
+    );
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    height: 100%;
+}
+
+.weather__container {
+    background-color: var(--primary);
+    max-width: 60rem;
+    width: 100%;
+    border-radius: 1rem;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.brand {
+    display: inline-block;
+    margin: var(--sm-space) var(--md-space);
+}
+
+.brand img {
+    width: 168px;
+    height: 40px;
+}
+
+.weather__card {
+    display: flex;
+    background-color: var(--deep-purple);
+    color: var(--secondary);
+    background-size: cover;
+    object-fit: cover;
+    margin: var(--md-space);
+    flex-direction: column;
+    gap: var(--sm-space);
+    padding: var(--sm-space);
+    border-radius: 1rem;
+}
+
+.weather__search-city {
+    box-sizing: border-box;
+    margin: var(--md-space);
+}
+
+.weather__search-city label {
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--deep-purple);
+}
+
+.weather__search-city input {
+    display: flex;
+    width: 100%;
+    padding: var(--sm-space);
+    border-radius: 0.5rem;
+    background-color: #f5f8fe;
+    border: none;
+    color: var(--deep-purple);
+    font-size: 1.375rem;
+}
+
+.weather__search-city input::placeholder {
+    color: var(--soft-purple);
+}
+
+.weather__search-city input:focus {
+    outline: var(--deep-purple) solid 0.125rem;
+}
+
+.weather__city-info {
+    display: flex;
+    align-items: center;
+    gap: var(--sm-space);
+    padding: var(--sm-space) var(--sm-space);
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+h2[data-js="city-name"] {
+    font-size: 46px;
+    font-weight: 500;
+}
+
+.weather__city-info p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.weather__region_timezone {
+    flex-grow: 2;
+    position: relative;
+}
+
+.weather__region_timezone::before {
+    content: "";
+    width: 1px;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    background-color: var(--primary);
+    left: -15px;
+}
+
+.weather__forecast-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.weather__forecast-info span {
+    font-size: 68px;
+    font-weight: 700;
+}
+.weather__forecast-info div[data-js="city-weather"] {
+    font-size: 22px;
+}
+
+.weather__other-infos {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--sm-space);
+    color: var(--secondary);
+    flex-wrap: wrap;
+}
+
+.weather__other-infos div {
+    padding: var(--xsm-space) var(--sm-space);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hide {
+    display: none;
+}
+
+.temperature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 960px) {
+    main {
+        padding: 1rem;
+    }
+    .weather__card {
+        margin: var(--sm-space);
+        gap: var(--xsm-space);
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 1rem;
+    }
+
+    .brand {
+        padding-bottom: 0;
+        margin-left: var(--sm-space);
+    }
+
+    .brand img {
+        width: 101px;
+        height: 24px;
+    }
+
+    .weather__search-city {
+        box-sizing: border-box;
+        margin: 0 1rem;
+    }
+
+    .weather__search-city label {
+        margin-bottom: var(--xsm-space);
+        display: block;
+    }
+
+    .weather__search-city input {
+        width: 100%;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .weather__city-info {
+        flex-direction: column;
+        gap: var(--xsm-space);
+        padding: var(--xsm-space);
+    }
+
+    .weather__forecast-info {
+        align-items: center;
+        gap: var(--xsm-space);
+        margin-bottom: 1rem;
+    }
+    .weather__forecast-info span {
+        font-size: 2rem;
+    }
+    .weather__forecast-info div[data-js="city-weather"] {
+        font-size: 1rem;
+    }
+
+    .weather__region_timezone {
+        text-align: center;
+    }
+
+    .weather__region_timezone::before {
+        display: none;
+    }
+
+    .weather__other-infos {
+        justify-content: center;
+        gap: 1rem;
+    }
+}
