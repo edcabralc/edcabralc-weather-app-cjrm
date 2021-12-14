@@ -2,22 +2,21 @@ const formSearchCity = document.querySelector(".weather__search-city");
 const weatherCard = document.querySelector(".weather__card");
 const weatherCardImage = document.querySelector(".weather__card-image img");
 const containerCityName = document.querySelector("[data-js='city-name']");
-const containerCityTemperature = document.querySelector(
-    "[data-js='city-temperature']"
-);
 const containerCityRegion = document.querySelector('[data-js="city-region"]');
 const containerCityCountry = document.querySelector('[data-js="city-country"]');
 const containerCityWeather = document.querySelector('[data-js="city-weather"]');
 const containerCityTimestamp = document.querySelector(
     '[data-js="city-timestamp"]'
 );
+const containerCityTemperature = document.querySelector(
+    "[data-js='city-temperature']"
+);
+const pressureInfo = document.querySelector('[data-js="pressure-info"]');
 const relativeHumidity = document.querySelector(
     '[data-js="relative-humidity"]'
 );
 const windSpeedInfo = document.querySelector('[data-js="wind-speed"]');
-const pressureInfo = document.querySelector('[data-js="pressure-info"]');
 let timeIcon = document.querySelector('[data-js="time-icon"]');
-console.log(weatherCardImage);
 
 // const insertInfoIntoDOM = () => {};
 
