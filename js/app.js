@@ -1,5 +1,6 @@
 const formSearchCity = document.querySelector(".weather__search-city");
 const weatherCard = document.querySelector(".weather__card");
+const weatherCardImage = document.querySelector(".weather__card-image img");
 const containerCityName = document.querySelector("[data-js='city-name']");
 const containerCityTemperature = document.querySelector(
     "[data-js='city-temperature']"
@@ -16,6 +17,7 @@ const relativeHumidity = document.querySelector(
 const windSpeedInfo = document.querySelector('[data-js="wind-speed"]');
 const pressureInfo = document.querySelector('[data-js="pressure-info"]');
 let timeIcon = document.querySelector('[data-js="time-icon"]');
+console.log(weatherCardImage);
 
 // const insertInfoIntoDOM = () => {};
 
@@ -45,9 +47,8 @@ formSearchCity.addEventListener("submit", async (event) => {
     if (hasHideClass) weatherCard.classList.remove("hide");
 
     IsDayTime
-        ? (weatherCard.style.backgroundImage = 'url("../images/src/day.svg")')
-        : (weatherCard.style.backgroundImage =
-              'url("../images/src/night.svg")');
+        ? (weatherCardImage.src = "images/src/day.svg")
+        : (weatherCardImage.src = "images/src/night.svg");
 
     containerCityName.textContent = LocalizedName;
     containerCityTemperature.textContent = Temperature.Metric.Value;
