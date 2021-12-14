@@ -41,7 +41,7 @@ formSearchCity.addEventListener("submit", async (event) => {
         },
     ] = await getWeatherData(Key);
 
-    const iconImage = `<img src='./images/src/icons/${WeatherIcon}.svg' />`;
+    const iconImage = `<img src='images/src/icons/${WeatherIcon}.svg' />`;
     const hasHideClass = weatherCard.classList.contains("hide");
 
     if (hasHideClass) weatherCard.classList.remove("hide");

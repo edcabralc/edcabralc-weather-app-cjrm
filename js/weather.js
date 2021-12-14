@@ -1,5 +1,5 @@
 const apiKey = "r0IQGnWGAYNnbWtkdSpDUW1deyisMtip";
-const baseUrl = "http://dataservice.accuweather.com/";
+const baseUrl = "https://dataservice.accuweather.com/";
 
 const getWeatherInfoUrl = (cityKey) =>
     `${baseUrl}currentconditions/v1/${cityKey}?apikey=${apiKey}&language=pt-br&details=true`;
