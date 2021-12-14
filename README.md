@@ -1,6 +1,6 @@
-# Aplicação de 
+# Brief 
 
-A brief description of what this project does and who it's for
+It's a simple project developed in the course CJRM. I made all the UI layout and then showed the information of weather consuming a accuWheater api.
 
 
 ## Screenshots
@@ -12,6 +12,15 @@ A brief description of what this project does and who it's for
 
 - [@edcabralc](https://github.com/edcabralc)
 
+## Tech Stack
+
+- [AccuWeather APIs](https://developer.accuweather.com/)
+- Semantic HTML5 markup
+- CSS3
+- CSS custom properties
+- JavaScript
+
+
 
 ## Lessons Learned
 
@@ -22,3 +31,5 @@ A brief description of what this project does and who it's for
 * Function refactoring
 
 * UI desing prototyping
+
+
