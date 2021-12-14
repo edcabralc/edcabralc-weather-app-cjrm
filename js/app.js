@@ -39,15 +39,14 @@ formSearchCity.addEventListener("submit", async (event) => {
         },
     ] = await getWeatherData(Key);
 
-    const iconImage = `<img src='./images/src/icons/${WeatherIcon}.svg' />`;
+    const iconImage = `<img src='/images/src/icons/${WeatherIcon}.svg' />`;
     const hasHideClass = weatherCard.classList.contains("hide");
 
     if (hasHideClass) weatherCard.classList.remove("hide");
 
     IsDayTime
-        ? (weatherCard.style.backgroundImage = 'url("../images/src/day.svg")')
-        : (weatherCard.style.backgroundImage =
-              'url("../images/src/night.svg")');
+        ? (weatherCard.style.backgroundImage = 'url("/images/src/day.svg")')
+        : (weatherCard.style.backgroundImage = 'url("/images/src/night.svg")');
 
     containerCityName.textContent = LocalizedName;
     containerCityTemperature.textContent = Temperature.Metric.Value;
