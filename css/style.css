@@ -184,6 +184,13 @@ h2[data-js="city-name"] {
     align-items: center;
 }
 
+footer {
+    color: var(--primary);
+}
+footer a {
+    color: inherit;
+}
+
 @media (max-width: 960px) {
     main {
         padding: 1.5rem;
