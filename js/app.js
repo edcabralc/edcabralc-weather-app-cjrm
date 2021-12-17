@@ -12,15 +12,18 @@ const humidity = document.querySelector('[data-js="relative-humidity"]');
 const windSpeed = document.querySelector('[data-js="wind-speed"]');
 let weatherIcon = document.querySelector('[data-js="time-icon"]');
 
-const getCityWeatherInfoAPI = async (inputValue) => {
-    const [{ Key, LocalizedName, AdministrativeArea, Country }] =
-        await getCityData(inputValue);
-    return { Key, LocalizedName, AdministrativeArea, Country };
+const getImageIcon = (WeatherIcon) =>
+    `<img src='images/src/icons/${WeatherIcon}.svg' />`;
+
+const showCardWeather = () => {
+    const hasHideClass = weatherCard.classList.contains("hide");
+
+    if (hasHideClass) weatherCard.classList.remove("hide");
 };
 
-const getWeatherInfoAPI = async (inputValue) => {
+const showCityWeatherInfo = async (city) => {
     const [{ Key, LocalizedName, AdministrativeArea, Country }] =
-        await getCityData(inputValue);
+        await getCityData(city);
     const [
         {
             WeatherText,
@@ -34,51 +37,9 @@ const getWeatherInfoAPI = async (inputValue) => {
         },
     ] = await getWeatherData(Key);
 
-    return {
-        LocalizedName,
-        AdministrativeArea,
-        Country,
-        WeatherText,
-        Temperature,
-        IsDayTime,
-        EpochTime,
-        RelativeHumidity,
-        Wind,
-        Pressure,
-        WeatherIcon,
-    };
-};
-
-const getImageIcon = (WeatherIcon) =>
-    `<img src='images/src/icons/${WeatherIcon}.svg' />`;
-
-formSearchCity.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const inputValue = event.target.searchCity.value;
-
-    const {
-        LocalizedName,
-        AdministrativeArea,
-        Country,
-        WeatherText,
-        Temperature,
-        IsDayTime,
-        EpochTime,
-        RelativeHumidity,
-        Wind,
-        Pressure,
-        WeatherIcon,
-    } = await getWeatherInfoAPI(inputValue);
-
-    const hasHideClass = weatherCard.classList.contains("hide");
-
-    if (hasHideClass) weatherCard.classList.remove("hide");
-
-    IsDayTime
-        ? (weatherCardImage.src = "images/src/day.svg")
-        : (weatherCardImage.src = "images/src/night.svg");
-
+    weatherCardImage.src = IsDayTime
+        ? "images/src/day.svg"
+        : "images/src/night.svg";
     cityName.textContent = LocalizedName;
     cityRegion.textContent = AdministrativeArea.EnglishName;
     cityCountry.textContent = Country.EnglishName;
@@ -89,6 +50,17 @@ formSearchCity.addEventListener("submit", async (event) => {
     pressure.textContent = Pressure.Metric.Value;
     humidity.textContent = RelativeHumidity;
     windSpeed.textContent = Wind.Speed.Metric.Value;
+};
+
+const showDataIntoDOM = (event) => {
+    event.preventDefault();
+
+    const inputValue = event.target.searchCity.value;
+
+    showCardWeather();
+    showCityWeatherInfo(inputValue);
 
     formSearchCity.reset();
-});
+};
+
+formSearchCity.addEventListener("submit", showDataIntoDOM);

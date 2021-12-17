@@ -198,11 +198,6 @@ h2[data-js="city-name"] {
         margin-bottom: 0.5rem;
     }
 
-    /* .weather__search-city {
-        box-sizing: border-box;
-        margin: 0 1rem;
-    } */
-
     .weather__card {
         margin: 0 var(--sm-space);
         gap: var(--xsm-space);
@@ -252,5 +247,21 @@ h2[data-js="city-name"] {
     .weather__other-infos {
         justify-content: center;
         gap: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    main {
+        padding: 1rem;
+    }
+
+    .weather__container {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .weather__card {
+        margin: 0.5rem;
+        padding: 0.5rem;
     }
 }
