@@ -185,7 +185,7 @@ h2[data-js="city-name"] {
 }
 
 footer {
-    color: var(--primary);
+    color: var(--secondary-soft);
 }
 footer a {
     color: inherit;

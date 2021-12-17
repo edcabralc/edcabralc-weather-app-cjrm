@@ -12,6 +12,12 @@ const humidity = document.querySelector('[data-js="relative-humidity"]');
 const windSpeed = document.querySelector('[data-js="wind-speed"]');
 let weatherIcon = document.querySelector('[data-js="time-icon"]');
 
+const getCityWeatherInfoAPI = async (inputValue) => {
+    const [{ Key, LocalizedName, AdministrativeArea, Country }] =
+        await getCityData(inputValue);
+    return { Key, LocalizedName, AdministrativeArea, Country };
+};
+
 const getWeatherInfoAPI = async (inputValue) => {
     const [{ Key, LocalizedName, AdministrativeArea, Country }] =
         await getCityData(inputValue);
@@ -50,6 +56,7 @@ formSearchCity.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const inputValue = event.target.searchCity.value;
+
     const {
         LocalizedName,
         AdministrativeArea,
