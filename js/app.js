@@ -17,7 +17,6 @@ const getImageIcon = (WeatherIcon) =>
 
 const showCardWeather = () => {
     const hasHideClass = weatherCard.classList.contains("hide");
-
     if (hasHideClass) weatherCard.classList.remove("hide");
 };
 
@@ -50,17 +49,26 @@ const showCityWeatherInfo = async (city) => {
     pressure.textContent = Pressure.Metric.Value;
     humidity.textContent = RelativeHumidity;
     windSpeed.textContent = Wind.Speed.Metric.Value;
+
+    showCardWeather();
+};
+
+const showCityInLocalStorage = () => {
+    const city = localStorage.getItem("city");
+    if (city) {
+        showCardWeather();
+        showCityWeatherInfo(city);
+    }
 };
 
 const showDataIntoDOM = (event) => {
     event.preventDefault();
-
     const inputValue = event.target.searchCity.value;
 
-    showCardWeather();
     showCityWeatherInfo(inputValue);
-
+    localStorage.setItem("city", inputValue);
     formSearchCity.reset();
 };
 
 formSearchCity.addEventListener("submit", showDataIntoDOM);
+showCityInLocalStorage();
