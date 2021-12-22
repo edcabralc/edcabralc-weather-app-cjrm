@@ -1,4 +1,4 @@
-const formSearchCity = document.querySelector(".weather__search-city");
+const inputSearchCity = document.querySelector(".weather__search-city");
 const weatherCard = document.querySelector(".weather__card");
 const weatherCardImage = document.querySelector(".weather__card-image img");
 const cityName = document.querySelector("[data-js='city-name']");
@@ -10,14 +10,16 @@ const cityTemperature = document.querySelector("[data-js='city-temperature']");
 const pressure = document.querySelector('[data-js="pressure-info"]');
 const humidity = document.querySelector('[data-js="relative-humidity"]');
 const windSpeed = document.querySelector('[data-js="wind-speed"]');
-let weatherIcon = document.querySelector('[data-js="time-icon"]');
+const weatherIcon = document.querySelector('[data-js="time-icon"]');
 
 const getImageIcon = (WeatherIcon) =>
     `<img src='images/src/icons/${WeatherIcon}.svg' />`;
 
 const showCardWeather = () => {
     const hasHideClass = weatherCard.classList.contains("hide");
-    if (hasHideClass) weatherCard.classList.remove("hide");
+    if (hasHideClass) {
+        weatherCard.classList.remove("hide");
+    }
 };
 
 const showCityWeatherInfo = async (city) => {
@@ -67,8 +69,8 @@ const showDataIntoDOM = (event) => {
 
     showCityWeatherInfo(inputValue);
     localStorage.setItem("city", inputValue);
-    formSearchCity.reset();
+    inputSearchCity.reset();
 };
 
-formSearchCity.addEventListener("submit", showDataIntoDOM);
+inputSearchCity.addEventListener("submit", showDataIntoDOM);
 showCityInLocalStorage();

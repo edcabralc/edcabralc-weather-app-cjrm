@@ -24,21 +24,13 @@ const fetchData = async (url) => {
 const getCityData = (cityName) => fetchData(getCityUrl(cityName));
 const getWeatherData = (cityKey) => fetchData(getWeatherInfoUrl(cityKey));
 
-const formatDayName = (dayName) => {
-    const days = [
-        "Domingo",
-        "Segunda",
-        "Terça",
-        "Quarta",
-        "Quinta",
-        "Sexta",
-        "Sábado",
+const formatDayName = (dayName) =>
+    ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"][
+        dayName
     ];
-    return days[dayName];
-};
 
-const formatMonthName = (monthName) => {
-    const months = [
+const formatMonthName = (monthName) =>
+    [
         "Janeiro",
         "Fevereiro",
         "Março",
@@ -51,9 +43,7 @@ const formatMonthName = (monthName) => {
         "Outubro",
         "Novembro",
         "Dezembro",
-    ];
-    return months[monthName];
-};
+    ][monthName];
 
 const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp * 1000);
